@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private int _damage = 10;
 
     // Событие, которое будет вызвано при попадании снаряда
-    public static Action<int> OnHit;
+    public static Action<int> onHit;
 
     [SerializeField] private Rigidbody2D _rb;
 
@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Castle"))
         {
             // Вызываем событие попадания и передаём урон
-            OnHit?.Invoke(_damage);
+            onHit?.Invoke(_damage);
         }
 
         // Уничтожаем снаряд после столкновения
