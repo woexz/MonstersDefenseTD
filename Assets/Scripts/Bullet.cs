@@ -30,9 +30,10 @@ public class Bullet : MonoBehaviour
         {
             // Вызываем событие попадания и передаём урон
             onHit?.Invoke(_damage);
+            // Уничтожаем снаряд после столкновения
+            Destroy(gameObject);
         }
 
-        // Уничтожаем снаряд после столкновения
-        Destroy(gameObject);
+        
     }
 }

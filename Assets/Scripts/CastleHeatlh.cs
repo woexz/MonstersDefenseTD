@@ -32,7 +32,7 @@ public class CastleHeatlh : MonoBehaviour
     {
         
         SetHp(currentHealth - damage);
-        Debug.Log("Замок получил урон! Текущее здоровье: " + currentHealth);
+        //Debug.Log("Замок получил урон! Текущее здоровье: " + currentHealth);
 
         // Если здоровье упало до 0 или ниже, уничтожаем замок
         if (currentHealth <= 0)
