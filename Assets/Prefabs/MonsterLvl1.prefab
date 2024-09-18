@@ -109,7 +109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35ce5d74d369ffc4aa54106be5e1cf49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _monsterHealthBar: {fileID: 0}
 --- !u!114 &815087779372541470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 565d6fda0bd348244a03a9c302fc0ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hpBar: {fileID: 7892008130937515816, guid: 917bed9fb4f88314689fcdc511b9a165, type: 3}
+  _hpBarContainer: {fileID: 0}
+  _health: {fileID: 2613839127271733468}
+  _uiRef: {fileID: 11400000, guid: b07b30193d1c98342a720853115dc6fb, type: 2}
 --- !u!1 &5489147928708108007
 GameObject:
   m_ObjectHideFlags: 0

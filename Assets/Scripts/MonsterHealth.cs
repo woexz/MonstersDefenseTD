@@ -8,7 +8,7 @@ public class MonsterHealth : MonoBehaviour
     private int maxHealth = 100;  // Максимальное здоровье монстра
     private int currentHealth;   // Текущее здоровье монстра
 
-    [SerializeField] private MonsterHealthBar _monsterHealthBar;
+    private MonsterHealthBar _monsterHealthBar;
 
     public static Action onMonsterDies;
     public static Action<int> onMonsterHpChange;
@@ -40,6 +40,11 @@ public class MonsterHealth : MonoBehaviour
         float hpProcent = Utils.GetProcent((float)currentHealth, (float)maxHealth);
         onMonsterHpChangeProcent?.Invoke(hpProcent);
         onMonsterHpChange?.Invoke(currentHealth); //Вызываем событие изменения хп монстра
+    }
+
+    public void SetHealthBar(MonsterHealthBar bar)
+    {
+        _monsterHealthBar = bar;
     }
 
     // Метод для уничтожения монстра

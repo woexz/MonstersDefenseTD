@@ -14,6 +14,14 @@ public class MonsterHealthBar : MonoBehaviour
 
     private float fixetTime = 0;
 
+    private Monster _owner;
+
+    public void SetOwner(Monster owner)
+    {
+        _owner = owner;
+        _target = owner.transform;
+    }
+
     private void OnMonsterDies()
     {
         DestroyHealthBar();
