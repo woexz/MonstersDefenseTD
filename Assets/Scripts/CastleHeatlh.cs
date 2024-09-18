@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CastleHeatlh : MonoBehaviour
 {
-    public int maxHealth = 100;   // Максимальное количество здоровья замка
+    private int maxHealth = 100;   // Максимальное количество здоровья замка
     private int currentHealth;    // Текущее здоровье замка
     [SerializeField] private CastleHealthBar _castleHealthBar;
 
@@ -32,7 +32,7 @@ public class CastleHeatlh : MonoBehaviour
     {
         
         SetHp(currentHealth - damage);
-        //Debug.Log("Замок получил урон! Текущее здоровье: " + currentHealth);
+        Debug.Log("Замок получил урон! Текущее здоровье: " + currentHealth);
 
         // Если здоровье упало до 0 или ниже, уничтожаем замок
         if (currentHealth <= 0)
@@ -43,7 +43,7 @@ public class CastleHeatlh : MonoBehaviour
 
     private void SetHp(int hp)
     {
-        currentHealth = hp;
+        currentHealth = hp; //Выставляем текущее хп с нанесенным уроном
         float hpProcent = Utils.GetProcent((float)currentHealth, (float)maxHealth);
         onHpChangeProcent?.Invoke(hpProcent);
         onHpChange?.Invoke(currentHealth);
