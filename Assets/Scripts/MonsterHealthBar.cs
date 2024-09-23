@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,16 @@ public class MonsterHealthBar : MonoBehaviour
 
     private float fixetTime = 0;
 
-    private void OnMonsterDies()
+    private Monster _owner;
+
+
+    public void SetOwner(Monster owner)
+    {
+        _owner = owner;
+        _target = owner.transform;
+    }
+
+    public void OnMonsterDies()
     {
         DestroyHealthBar();
     }
@@ -29,19 +39,17 @@ public class MonsterHealthBar : MonoBehaviour
         ChangeHpFillAmount(hpProcent);
     }
 
-    private void Start()
-    {
-        MonsterHealth.onMonsterDies += OnMonsterDies;
-        MonsterHealth.onMonsterHpChange += OnMonsterHpChange;
-        MonsterHealth.onMonsterHpChangeProcent += OnMonsterHpChangeProcent;
-    }
+    //private void Start()
+    //{
+    //    MonsterHealth.onMonsterHpChange += OnMonsterHpChange;
+    //    MonsterHealth.onMonsterHpChangeProcent += OnMonsterHpChangeProcent;
+    //}
 
-    private void OnDestroy()
-    {
-        MonsterHealth.onMonsterDies -= OnMonsterDies;
-        MonsterHealth.onMonsterHpChange -= OnMonsterHpChange;
-        MonsterHealth.onMonsterHpChangeProcent -= OnMonsterHpChangeProcent;
-    }
+    //private void OnDestroy()
+    //{
+    //    MonsterHealth.onMonsterHpChange -= OnMonsterHpChange;
+    //    MonsterHealth.onMonsterHpChangeProcent -= OnMonsterHpChangeProcent;
+    //}
 
     private void Update()
     {
@@ -57,12 +65,12 @@ public class MonsterHealthBar : MonoBehaviour
         }
     }
 
-    private void ChangeHpAmount(int currentHealth)
+    public void ChangeHpAmount(int currentHealth)
     {
         _hpAmount.text = currentHealth.ToString();
     }
 
-    private void ChangeHpFillAmount(float hpProcent)
+    public void ChangeHpFillAmount(float hpProcent)
     {
         _hpFillBar.fillAmount = hpProcent;
     }
@@ -74,7 +82,7 @@ public class MonsterHealthBar : MonoBehaviour
         _hpAmount.text = currentHealth.ToString();
     }
 
-    private void DestroyHealthBar()
+    public void DestroyHealthBar()
     {
         Destroy(gameObject);
     }

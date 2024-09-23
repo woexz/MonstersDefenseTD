@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class MonsterHealth : MonoBehaviour
 {
-    private int maxHealth = 100;  // Максимальное здоровье монстра
-    private int currentHealth;   // Текущее здоровье монстра
+    [SerializeField] private int maxHealth = 100;  // Максимальное здоровье монстра
+    [SerializeField] private int currentHealth;   // Текущее здоровье монстра
+    [SerializeField] public int _manaForDeath; //Сколько маны начислить за смерть монстра
 
-    [SerializeField] private MonsterHealthBar _monsterHealthBar;
 
-    public static Action onMonsterDies;
+    private MonsterHealthBar _monsterHealthBar;
+
     public static Action<int> onMonsterHpChange;
     public static Action<float> onMonsterHpChangeProcent;
 
@@ -20,6 +21,13 @@ public class MonsterHealth : MonoBehaviour
         currentHealth = maxHealth;
         _monsterHealthBar.SetHpVisual(maxHealth, currentHealth);
     }
+
+    public void SetHealthBar(MonsterHealthBar bar)
+    {
+        _monsterHealthBar = bar;
+    }
+
+
 
     // Метод для нанесения урона
     private void TakeDamage(int damage)
@@ -38,18 +46,26 @@ public class MonsterHealth : MonoBehaviour
     {
         currentHealth = hp; //Выставляем текущее хп с нанесенным уроном
         float hpProcent = Utils.GetProcent((float)currentHealth, (float)maxHealth);
-        onMonsterHpChangeProcent?.Invoke(hpProcent);
-        onMonsterHpChange?.Invoke(currentHealth); //Вызываем событие изменения хп монстра
+        //onMonsterHpChangeProcent?.Invoke(hpProcent);
+        _monsterHealthBar.ChangeHpFillAmount(hpProcent);
+        _monsterHealthBar.ChangeHpAmount(currentHealth);
+        //onMonsterHpChange?.Invoke(currentHealth); //Вызываем событие изменения хп монстра
     }
 
     // Метод для уничтожения монстра
     void Die()
     {
         Debug.Log("Монстр уничтожен!");
-        // Уничтожаем объект монстра
 
         //Invoke события
-        onMonsterDies?.Invoke();
+        //_manaManager.RegenerateMana(_manaForDeath);
+        ManaManager.Instance.RegenerateMana(_manaForDeath);
+        _monsterHealthBar.DestroyHealthBar();
+        var monsters = FindObjectsOfType<Monster>();
+        if (monsters == null || monsters.Length <= 1) 
+        {
+            GameManager.Instance.Victory();
+        }
         Destroy(gameObject);
     }
 

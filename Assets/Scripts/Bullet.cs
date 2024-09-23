@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _speed = 10f;        // Скорость пули
     [SerializeField] private float _lifetime = 2f;      // Время жизни пули
-    [SerializeField] private int _damage = 10;
+    private int _damage = 0;
 
     // Событие, которое будет вызвано при попадании снаряда
     public static Action<int> onHit;
@@ -35,5 +35,10 @@ public class Bullet : MonoBehaviour
         }
 
         
+    }
+
+    public void SetDamage(int damage)
+    {
+        _damage = damage;
     }
 }

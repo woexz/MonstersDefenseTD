@@ -1,18 +1,19 @@
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Transform _hpBar;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private MonsterHealth _health;
+    [SerializeField] private UIReferences _uiRef;
+    public void CreateHpVisual()
     {
-        
+        //âèçóàëèçèðîâàòü ïîëîñêó âï è ñîçäàâàòü åå
+        var bar = Instantiate(_hpBar, _uiRef.MonstersUIContainer).GetComponent<MonsterHealthBar>();
+        _health.SetHealthBar(bar);
+        bar.SetOwner(this);
     }
 }

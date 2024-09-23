@@ -5,18 +5,19 @@ using UnityEngine;
 
 public class CastleHeatlh : MonoBehaviour
 {
-    private int maxHealth = 100;   // Максимальное количество здоровья замка
+    [SerializeField] private int _maxHealth = 100;   // Максимальное количество здоровья замка
     private int currentHealth;    // Текущее здоровье замка
     [SerializeField] private CastleHealthBar _castleHealthBar;
 
     public static Action<float> onHpChangeProcent;
     public static Action<int> onHpChange;
+    private bool _isDead = false;
 
     private void Start()
     {
         // Устанавливаем здоровье на максимальное в начале игры
-        currentHealth = maxHealth;
-        _castleHealthBar.SetHpVisual(maxHealth, currentHealth);
+        currentHealth = _maxHealth;
+        _castleHealthBar.SetHpVisual(_maxHealth, currentHealth);
         // Подписываемся на событие снаряда при создании снаряда
         Bullet.onHit += TakeDamage;
 
@@ -35,8 +36,9 @@ public class CastleHeatlh : MonoBehaviour
         Debug.Log("Замок получил урон! Текущее здоровье: " + currentHealth);
 
         // Если здоровье упало до 0 или ниже, уничтожаем замок
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !_isDead)
         {
+
             Die();
         }
     }
@@ -44,7 +46,7 @@ public class CastleHeatlh : MonoBehaviour
     private void SetHp(int hp)
     {
         currentHealth = hp; //Выставляем текущее хп с нанесенным уроном
-        float hpProcent = Utils.GetProcent((float)currentHealth, (float)maxHealth);
+        float hpProcent = Utils.GetProcent((float)currentHealth, (float)_maxHealth);
         onHpChangeProcent?.Invoke(hpProcent);
         onHpChange?.Invoke(currentHealth);
     }
@@ -54,8 +56,10 @@ public class CastleHeatlh : MonoBehaviour
     // Метод для уничтожения замка
     void Die()
     {
+        _isDead = true;
         Debug.Log("Замок разрушен!");
         // Здесь вы можете добавить анимацию разрушения, эффекты и т.д.
+        GameManager.Instance.GameOver();
         Destroy(gameObject);
     }
 

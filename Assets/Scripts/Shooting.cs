@@ -8,6 +8,7 @@ public class Shooting : MonoBehaviour
     public Transform FirePoint;          // Точка, откуда стреляем
     public float fireRate = 0.5f;     // Задержка между выстрелами
     private float nextFireTime = 0f;  // Время, когда можно будет снова стрелять
+    [SerializeField] private int _damage;
 
     void Update()
     {
@@ -22,6 +23,7 @@ public class Shooting : MonoBehaviour
     void Shoot()
     {
         // Создаём пулю в позиции сопла с ориентацией сопла
-        Instantiate(bulletPrefab, FirePoint.position, FirePoint.rotation);
+        var bullet = Instantiate(bulletPrefab, FirePoint.position, FirePoint.rotation).GetComponent<Bullet>();
+        bullet.SetDamage(_damage);
     }
 }
