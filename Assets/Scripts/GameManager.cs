@@ -34,12 +34,13 @@ public class GameManager : MonoBehaviour
          »м€ —чЄт - 2 столбца
          */
         ScoreRecordData scoreRecordData = new ScoreRecordData();
-        scoreRecordData.Name = "PlayerName"; 
+        scoreRecordData.Name = "PlayerName"; //InputField с именем введеным в начале
         scoreRecordData.Score = ScoreManager.Instance.score;
 
         ScoreDataJsonManager.Instance.AddNewRecords(scoreRecordData);
         ScoreDataJsonManager.Instance.SaveScoreRecords();
         Time.timeScale = 0f;
+        Application.Quit();
 
     }
 
@@ -56,7 +57,7 @@ public class GameManager : MonoBehaviour
         ScoreDataJsonManager.Instance.AddNewRecords(scoreRecordData);
         ScoreDataJsonManager.Instance.SaveScoreRecords();
         Time.timeScale = 0f;
-
+        Application.Quit();
 
     }
 
