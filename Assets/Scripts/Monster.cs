@@ -1,3 +1,4 @@
+п»їusing System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,11 +9,9 @@ public class Monster : MonoBehaviour
 
     [SerializeField] private MonsterHealth _health;
     [SerializeField] private UIReferences _uiRef;
-
-
     public void CreateHpVisual()
     {
-        //визуализировать полоску вп и создавать ее
+        //ГўГЁГ§ГіГ Г«ГЁГ§ГЁГ°Г®ГўГ ГІГј ГЇГ®Г«Г®Г±ГЄГі ГўГЇ ГЁ Г±Г®Г§Г¤Г ГўГ ГІГј ГҐГҐ
         var bar = Instantiate(_hpBar, _uiRef.MonstersUIContainer).GetComponent<MonsterHealthBar>();
         _health.SetHealthBar(bar);
         bar.SetOwner(this);

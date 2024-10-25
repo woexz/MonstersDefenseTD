@@ -8,7 +8,7 @@ public class SOReferencesController : MonoBehaviour
 
     [SerializeField] private Transform _monsterUIContainer;
 
-    private void Start()
+    private void Awake()
     {
         _uiRef.MonstersUIContainer = _monsterUIContainer;
     }
