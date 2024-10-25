@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Newtonsoft.Json;
-using UnityEngine.AddressableAssets;
-using System;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 using System.IO;
-using Unity.VisualScripting.FullSerializer;
-using Unity.VisualScripting;
+using UnityEngine;
 
 public class ScoreDataJsonManager : MonoBehaviour
 {
-    private const string SAVE_FILE_PATH = @"c:\ScoreRecords.json";
+    private string _saveFilePath;
     private List<ScoreRecordData> _scoreRecordDatas = new List<ScoreRecordData>();
     // Статическая переменная для хранения единственного экземпляра
     private static ScoreDataJsonManager _instance;
@@ -26,7 +19,7 @@ public class ScoreDataJsonManager : MonoBehaviour
             if (_instance == null)
             {
                 // Создаем новый объект и добавляем к нему компонент GameManager
-                _instance = new GameObject("ScoreDataJsonManager").AddComponent<ScoreDataJsonManager>();
+                Debug.LogError("this component is not found, try in ather scene");
             }
             return _instance;
         }
@@ -37,18 +30,21 @@ public class ScoreDataJsonManager : MonoBehaviour
         JsonSerializer serializer = new JsonSerializer();
         //serializer.Serialize(writer, _scoreRecordDatas);
         string json = JsonConvert.SerializeObject(_scoreRecordDatas);
-        File.WriteAllText(SAVE_FILE_PATH, json);
+        File.WriteAllText(_saveFilePath, json);
 
     }
 
     public void AddNewRecords(ScoreRecordData data)
     {
+        Debug.LogError(_scoreRecordDatas);
         _scoreRecordDatas.Add(data);
     }
 
     // Метод Awake вызывается при инициализации объекта
     private void Awake()
     {
+        _saveFilePath = Path.Combine(Application.persistentDataPath, @"saveData.json");
+
         // Проверяем, существует ли уже экземпляр
         if (_instance == null)
         {
@@ -68,13 +64,23 @@ public class ScoreDataJsonManager : MonoBehaviour
     }
     private void LoadScoreRecords()
     {
-        
+        Debug.LogError(_saveFilePath);
+        if (!File.Exists(_saveFilePath))
+        {
+            
+            File.Create(_saveFilePath);
+            return;
+        }
         //заполнение so с типами квестов
-        using (StreamReader sr = new StreamReader(SAVE_FILE_PATH))
+        using (StreamReader sr = new StreamReader(_saveFilePath))
         {
 
             string json = sr.ReadToEnd();
             _scoreRecordDatas = JsonConvert.DeserializeObject<List<ScoreRecordData>>(json);
+            if(_scoreRecordDatas == null)
+            {
+                _scoreRecordDatas = new List<ScoreRecordData>();
+            }
 
         }
     }

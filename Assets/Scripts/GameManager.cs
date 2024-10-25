@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
         scoreRecordData.Name = "PlayerName";
         scoreRecordData.Score = ScoreManager.Instance.score;
 
+        Debug.LogError(scoreRecordData);
         ScoreDataJsonManager.Instance.AddNewRecords(scoreRecordData);
         ScoreDataJsonManager.Instance.SaveScoreRecords();
         Time.timeScale = 0f;
