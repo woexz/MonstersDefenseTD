@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         ScoreDataJsonManager.Instance.AddNewRecords(scoreRecordData);
         ScoreDataJsonManager.Instance.SaveScoreRecords();
         Time.timeScale = 0f;
-        Application.Quit();
+        //Application.Quit();
 
     }
 
