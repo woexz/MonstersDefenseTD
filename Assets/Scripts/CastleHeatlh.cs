@@ -38,7 +38,6 @@ public class CastleHeatlh : MonoBehaviour
         // ≈сли здоровье упало до 0 или ниже, уничтожаем замок
         if (currentHealth <= 0)
         {
-            Time.timeScale = 0;
             Die();
         }
     }

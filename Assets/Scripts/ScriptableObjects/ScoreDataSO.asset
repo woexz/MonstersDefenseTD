@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1306465fc1cfa374b8db86f0a422f357, type: 3}
-  m_Name: UIReferences
+  m_Script: {fileID: 11500000, guid: 6b10d1df994623347bf7b2b245ad334c, type: 3}
+  m_Name: ScoreDataSO
   m_EditorClassIdentifier: 
-  MonstersUIContainer: {fileID: 0}
+  name: PlayerName
+  score: 0

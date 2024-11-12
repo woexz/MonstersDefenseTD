@@ -2,13 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     // Статическая переменная для хранения единственного экземпляра
     private static GameManager _instance;
 
+    [SerializeField] private ScoreData scoreDataSO;
     public static Action onGameOver;
+    public static Action onVictory;
 
     
     // Публичное статическое свойство для доступа к экземпляру
@@ -35,13 +38,12 @@ public class GameManager : MonoBehaviour
          */
         ScoreRecordData scoreRecordData = new ScoreRecordData();
         scoreRecordData.Name = "PlayerName"; //InputField с именем введеным в начале
-        scoreRecordData.Score = ScoreManager.Instance.score;
+        scoreRecordData.Score = scoreDataSO.score;
 
         ScoreDataJsonManager.Instance.AddNewRecords(scoreRecordData);
         ScoreDataJsonManager.Instance.SaveScoreRecords();
-        Time.timeScale = 0f;
-        Application.Quit();
-
+        onGameOver?.Invoke();
+        SceneManager.LoadScene("GameOverScene");
     }
 
     public void Victory()
@@ -52,13 +54,13 @@ public class GameManager : MonoBehaviour
          */
         ScoreRecordData scoreRecordData = new ScoreRecordData();
         scoreRecordData.Name = "PlayerName";
-        scoreRecordData.Score = ScoreManager.Instance.score;
+        scoreRecordData.Score = scoreDataSO.score;
 
         Debug.LogError(scoreRecordData);
         ScoreDataJsonManager.Instance.AddNewRecords(scoreRecordData);
         ScoreDataJsonManager.Instance.SaveScoreRecords();
-        Time.timeScale = 0f;
-        //Application.Quit();
+        onVictory?.Invoke();
+        SceneManager.LoadScene("VictoryScene");
 
     }
 

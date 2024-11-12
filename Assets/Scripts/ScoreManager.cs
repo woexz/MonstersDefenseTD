@@ -11,43 +11,25 @@ public class ScoreManager : MonoBehaviour
 
     private float timeBetweenFrames;
 
-    public float score {  get; private set; } 
-
     public static Action<float> onScoreChange;
 
-    // Статическая переменная для хранения единственного экземпляра
-    private static ScoreManager _instance;
+    [SerializeField] private ScoreData scoreDataSO;
 
-    // Публичное статическое свойство для доступа к экземпляру
-    public static ScoreManager Instance
+    
+    private void Start()
     {
-        get
-        {
-            // Если экземпляр не существует, создаем его
-            if (_instance == null)
-            {
-                // Создаем новый объект и добавляем к нему компонент GameManager
-                _instance = new GameObject("ScoreManager").AddComponent<ScoreManager>();
-            }
-            return _instance;
-        }
+        GameManager.onGameOver += OnGameOver;
+        GameManager.onVictory += OnVictory;
     }
 
+    private void OnDestroy()
+    {
+        GameManager.onGameOver -= OnGameOver;
+        GameManager.onVictory -= OnVictory;
+    }
     // Метод Awake вызывается при инициализации объекта
     private void Awake()
     {
-        // Проверяем, существует ли уже экземпляр
-        if (_instance == null)
-        {
-            // Если экземпляр не существует, назначаем текущий объект и не уничтожаем его при загрузке новой сцены
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            // Если экземпляр уже существует, уничтожаем текущий объект, чтобы сохранить единственность
-            Destroy(gameObject);
-        }
         timeBetweenFrames = secondQuentity / frameRate;
     }
 
@@ -58,14 +40,30 @@ public class ScoreManager : MonoBehaviour
         {
             if (timeBetweenFrames > Time.deltaTime)
             {
-                score += timeBetweenFrames;
+                scoreDataSO.score += timeBetweenFrames;
             }
             else
             {
-                score += Time.deltaTime;
+                scoreDataSO.score += Time.deltaTime;
             }
-            onScoreChange?.Invoke(score);
+            onScoreChange?.Invoke(scoreDataSO.score);
             fixetTime = 0.0f;
         }
+    }
+
+    private void OnGameOver()
+    {
+        ResetScore();
+    }
+
+    private void OnVictory()
+    {
+        ResetScore();
+    }
+
+    private void ResetScore()
+    {
+        scoreDataSO.score = 0;
+        onScoreChange?.Invoke(scoreDataSO.score);
     }
 }

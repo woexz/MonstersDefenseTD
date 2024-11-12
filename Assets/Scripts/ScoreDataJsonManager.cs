@@ -83,11 +83,7 @@ public class ScoreDataJsonManager : MonoBehaviour
             }
 
         }
-    }
-
-    
-
-    
+    }  
 }
 
 public class ScoreRecordData

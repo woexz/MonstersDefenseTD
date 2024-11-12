@@ -5,20 +5,7 @@ using UnityEngine.UI;
 
 public class ManaManager : MonoBehaviour
 {
-    private static ManaManager _instance;
-    public static ManaManager Instance
-    {
-        get
-        {
-            // Если экземпляр не существует, создаем его
-            if (_instance == null)
-            {
-                // Создаем новый объект и добавляем к нему компонент GameManager
-                _instance = new GameObject("GameManager").AddComponent<ManaManager>();
-            }
-            return _instance;
-        }
-    }
+    
 
     public float startMana = 1000f;
     public float currentMana;
@@ -31,24 +18,16 @@ public class ManaManager : MonoBehaviour
 
     [SerializeField] private Text ManaAmountText;
 
-    private void Awake()
-    {
-        ManaAmountText.text = startMana.ToString();
-        if (_instance == null)
-        {
-            // Если экземпляр не существует, назначаем текущий объект и не уничтожаем его при загрузке новой сцены
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            // Если экземпляр уже существует, уничтожаем текущий объект, чтобы сохранить единственность
-            Destroy(gameObject);
-        }
-    }
     void Start()
     {
+        ManaAmountText.text = startMana.ToString();
         currentMana = startMana;
+        Monster.onMonsterDies += RegenerateMana;
+    }
+
+    private void OnDestroy()
+    {
+        Monster.onMonsterDies -= RegenerateMana;
     }
     private void Update()
     {
@@ -72,7 +51,7 @@ public class ManaManager : MonoBehaviour
     }
 
     // Метод для восстановления маны
-    public void RegenerateMana(int manaForDeath)
+    void RegenerateMana(int manaForDeath)
     {
         currentMana += manaForDeath;
     }

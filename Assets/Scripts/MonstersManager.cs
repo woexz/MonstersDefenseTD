@@ -9,6 +9,7 @@ public class MonstersManager : MonoBehaviour
     [SerializeField] private float minDistanceBetweenMonsters = 2f; // Минимальная дистанция между монстрами
     [SerializeField] private Transform _monsterPref;
     [SerializeField] private int _monstersAmount;
+    [SerializeField] private Transform _monsterUIContainer; // панель со шкалами хп монстров
 
     private List<Vector2> spawnedPositions = new List<Vector2>(); // Хранение позиций монстров
 
@@ -41,7 +42,7 @@ public class MonstersManager : MonoBehaviour
             while (!validPosition);
             
             var monster = Instantiate(_monsterPref, chosenSpawnPosition, Quaternion.identity).GetComponent<Monster>();
-            monster.CreateHpVisual();
+            monster.CreateHpVisual(_monsterUIContainer);
             spawnedPositions.Add(chosenSpawnPosition);
         }
     }
