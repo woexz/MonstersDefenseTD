@@ -1380,8 +1380,8 @@ MonoBehaviour:
   _spawnRangeX: 8
   _spawnRangeY: 2
   minDistanceBetweenMonsters: 2
-  _monsterPref: {fileID: 466574390244218239, guid: 7fb0ef1dfe3ddaf488c5ba4858d7b9a7, type: 3}
-  _monstersAmount: 15
+  _monsterPref: {fileID: 466574390244218239, guid: 55ad15491ecdbcb4db57dc2d2f619afb, type: 3}
+  _monstersAmount: 8
   _monsterUIContainer: {fileID: 884594523}
 --- !u!4 &1851958181
 Transform:

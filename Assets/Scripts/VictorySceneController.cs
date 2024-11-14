@@ -7,6 +7,7 @@ public class VictorySceneController : MonoBehaviour
 {
     public void BackToMainMenuOnClick()
     {
+        Debug.Log("ננננ");
         SceneManager.LoadScene("MainMenu");
     }
 

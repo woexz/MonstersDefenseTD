@@ -5,13 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuButtons : MonoBehaviour
 {
+    [SerializeField] private GameObject _mainMenuPanel;
+    [SerializeField] private GameObject _modeSelectionPanel;
+
     public void ExitButtonOnClick()
     {
         Application.Quit();
     }
 
-    public void StartGameButtonOnClick()
+    public void PlayGameButtonOnClick()
     {
-        SceneManager.LoadScene("FirstLevel");
+        _mainMenuPanel.SetActive(false);
+        _modeSelectionPanel.SetActive(true);
     }
 }

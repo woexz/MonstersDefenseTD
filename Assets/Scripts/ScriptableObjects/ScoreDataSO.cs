@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/ScoreData")]
 public class ScoreData : ScriptableObject
 {
-    public string name;
+    public string playerName;
     public float score;
 }
