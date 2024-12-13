@@ -4,18 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class TimeModeManager : MonoBehaviour
 {
     // Статическая переменная для хранения единственного экземпляра
-    private static GameManager _instance;
+    private static TimeModeManager _instance;
 
     [SerializeField] private ScoreData scoreDataSO;
     public static Action onGameOver;
     public static Action onVictory;
 
-    
+
     // Публичное статическое свойство для доступа к экземпляру
-    public static GameManager Instance
+    public static TimeModeManager Instance
     {
         get
         {
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
             if (_instance == null)
             {
                 // Создаем новый объект и добавляем к нему компонент GameManager
-                _instance = new GameObject("GameManager").AddComponent<GameManager>();
+                _instance = new GameObject("TimeModeManager").AddComponent<TimeModeManager>();
             }
             return _instance;
         }
@@ -81,5 +81,5 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+
 }

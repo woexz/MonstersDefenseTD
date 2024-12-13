@@ -18,10 +18,59 @@ public class Monster : Enemy
 
     public void CreateHpVisual(Transform container)
     {
-        //âèçóàëèçèðîâàòü ïîëîñêó âï è ñîçäàâàòü åå
         var bar = Instantiate(_hpBar, container).GetComponent<MonsterHealthBar>();
         SetHealthBar(bar);
         bar.SetOwner(this);
-        
+    }
+
+    void Start()
+    {
+        // Устанавливаем текущее здоровье равным максимальному при старте игры
+        currentHealth = maxHealth;
+        _monsterHealthBar.SetHpVisual(maxHealth, currentHealth);
+    }
+
+    // Метод для нанесения урона
+    private void TakeDamage(int damage)
+    {
+        SetHp(currentHealth - damage);
+        Debug.Log("Монстр получил урон! Текущее здоровье: " + currentHealth);
+
+        // Если здоровье опускается до 0 или ниже, уничтожаем монстра
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void SetHp(int hp)
+    {
+        currentHealth = hp; //Выставляем текущее хп с нанесенным уроном
+        float hpProcent = Utils.GetProcent((float)currentHealth, (float)maxHealth);
+        //onMonsterHpChangeProcent?.Invoke(hpProcent);
+        _monsterHealthBar.ChangeHpFillAmount(hpProcent);
+        _monsterHealthBar.ChangeHpAmount(currentHealth);
+    }
+
+    // Метод для уничтожения монстра
+    void Die()
+    {
+        onMonsterDies?.Invoke(manaForKill);
+        Debug.Log("Монстр уничтожен!");
+
+        _monsterHealthBar.DestroyHealthBar();
+        var monsters = FindObjectsOfType<Monster>();
+        if (monsters == null || monsters.Length <= 1)
+        {
+            TimeModeManager.Instance.Victory();
+        }
+        Destroy(gameObject);
+    }
+
+    // Метод, который вызывается при клике по монстру
+    void OnMouseDown()
+    {
+        // Например, нанесём 10 единиц урона при каждом клике
+        TakeDamage(10);
     }
 }

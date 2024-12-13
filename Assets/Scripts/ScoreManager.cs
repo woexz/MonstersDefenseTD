@@ -18,14 +18,14 @@ public class ScoreManager : MonoBehaviour
     
     private void Start()
     {
-        GameManager.onGameOver += OnGameOver;
-        GameManager.onVictory += OnVictory;
+        TimeModeManager.onGameOver += OnGameOver;
+        TimeModeManager.onVictory += OnVictory;
     }
 
     private void OnDestroy()
     {
-        GameManager.onGameOver -= OnGameOver;
-        GameManager.onVictory -= OnVictory;
+        TimeModeManager.onGameOver -= OnGameOver;
+        TimeModeManager.onVictory -= OnVictory;
     }
     // Метод Awake вызывается при инициализации объекта
     private void Awake()

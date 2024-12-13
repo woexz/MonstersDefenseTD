@@ -7,7 +7,7 @@ public class GameOverSceneController : MonoBehaviour
 {
     public void TryAgainOnClick()
     {
-        SceneManager.LoadScene("FirstLevel");
+        SceneManager.LoadScene("TimeMode");
     }
 
     public void BackToMainMenuOnClick()

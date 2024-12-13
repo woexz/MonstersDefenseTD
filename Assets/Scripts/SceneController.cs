@@ -39,20 +39,16 @@ public class SceneController : MonoBehaviour
 
     public void StartGameButton()
     {
-        SceneManager.LoadScene("FirstLevel");
+        SceneManager.LoadScene("TimeMode");
     }
 
     public void TryAgainOnClick()
     {
-        SceneManager.LoadScene("FirstLevel");
+        SceneManager.LoadScene("TimeMode");
     }
 
     public void BackToMainMenuOnClick()
     {
         SceneManager.LoadScene("MainMenu");
     }
-
-
-
-
 }

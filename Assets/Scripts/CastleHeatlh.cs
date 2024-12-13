@@ -5,19 +5,22 @@ using UnityEngine;
 
 public class CastleHeatlh : MonoBehaviour
 {
-    [SerializeField] private int _maxHealth = 100;   // Максимальное количество здоровья замка
-    private int currentHealth = 100;    // Текущее здоровье замка
+    [SerializeField] private int _maxHealth = 1000;   // Максимальное количество здоровья замка
+    private int _currentHealth = 1000;    // Текущее здоровье замка
     [SerializeField] private CastleHealthBar _castleHealthBar;
 
+    private float _timer = 0f; // Переменная для отслеживания времени
+
+    [SerializeField] PlayerDataSO playerDataSO;
+
     public static Action<float> onHpChangeProcent;
-    public static Action<int> onHpChange;
+    public static Action<int, int> onHpChange;
 
     private void Start()
     {
-        _castleHealthBar.SetHpVisual(_maxHealth, currentHealth);
+        SetHp(_currentHealth);
         // Подписываемся на событие снаряда при создании снаряда
         Bullet.onHit += TakeDamage;
-
     }
 
     private void OnDestroy()
@@ -29,11 +32,11 @@ public class CastleHeatlh : MonoBehaviour
     public void TakeDamage(int damage)
     {
         
-        SetHp(currentHealth - damage);
-        Debug.Log("Замок получил урон! Текущее здоровье: " + currentHealth);
+        SetHp(_currentHealth - damage);
+        Debug.Log("Замок получил урон! Текущее здоровье: " + _currentHealth);
 
         // Если здоровье упало до 0 или ниже, уничтожаем замок
-        if (currentHealth <= 0)
+        if (_currentHealth <= 0)
         {
             Die();
         }
@@ -41,10 +44,10 @@ public class CastleHeatlh : MonoBehaviour
 
     private void SetHp(int hp)
     {
-        currentHealth = hp; //Выставляем текущее хп с нанесенным уроном
-        float hpProcent = Utils.GetProcent((float)currentHealth, (float)_maxHealth);
+        _currentHealth = hp; //Выставляем текущее хп с нанесенным уроном
+        float hpProcent = Utils.GetProcent((float)_currentHealth, (float)_maxHealth);
         onHpChangeProcent?.Invoke(hpProcent);
-        onHpChange?.Invoke(currentHealth);
+        onHpChange?.Invoke(_currentHealth, _maxHealth);
     }
 
     
@@ -54,7 +57,7 @@ public class CastleHeatlh : MonoBehaviour
     {
         Debug.Log("Замок разрушен!");
         // Здесь вы можете добавить анимацию разрушения, эффекты и т.д.
-        GameManager.Instance.GameOver();
+        TimeModeManager.Instance.GameOver();
         Destroy(gameObject);
     }
 }
