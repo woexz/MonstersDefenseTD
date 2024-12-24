@@ -9,6 +9,8 @@ public class Monster : Enemy
     protected MonsterHealthBar _monsterHealthBar;
     protected int currentHealth;
 
+    private IGameManager _gameManager;
+
     public static Action<int> onMonsterDies;
 
     public void SetHealthBar(MonsterHealthBar bar)
@@ -28,6 +30,8 @@ public class Monster : Enemy
         // Устанавливаем текущее здоровье равным максимальному при старте игры
         currentHealth = maxHealth;
         _monsterHealthBar.SetHpVisual(maxHealth, currentHealth);
+
+        //_gameManager = 
     }
 
     // Метод для нанесения урона

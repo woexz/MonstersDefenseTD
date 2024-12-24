@@ -10,8 +10,8 @@ public class VictorySceneController : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void GoToNextLevelOnClick()
+    public void PlayAgainOnClick()
     {
-        //логика перехода на следующий уровень
+        SceneManager.LoadScene("TimeMode");
     }
 }

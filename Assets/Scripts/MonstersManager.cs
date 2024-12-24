@@ -13,14 +13,6 @@ public class MonstersManager : MonoBehaviour
 
     private List<Vector2> spawnedPositions = new List<Vector2>(); // Хранение позиций монстров
 
-    //public void SpawnMonsters(List<MonsterData> data)
-    //{
-    //    foreach (MonsterData monster in data)
-    //    {
-    //        SpawnMonster(monster);
-    //    }
-    //}
-
     public void SpawnMonsters(MonsterData data)
     {
         spawnedPositions.Clear();

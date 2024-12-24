@@ -9,13 +9,17 @@ public class ModeSelectionButtonsPanel : MonoBehaviour
     [SerializeField] private GameObject _modeSelectionPanel;
     [SerializeField] private GameObject _storylineButtonsPanel;
 
+    [SerializeField] private PlayerDataSO _playerData;
+
     public void TimeModeButtonOnClick()
     {
+        _playerData.chosenGameManager = FindObjectOfType<TimeModeManager>();
         SceneManager.LoadScene("TimeMode");
     }
 
     public void StoryModeButtonOnClick()
     {
+        _playerData.chosenGameManager = FindObjectOfType<StorylineGameManager>();
         _modeSelectionPanel.SetActive(false);
         _storylineButtonsPanel.SetActive(true);
     }

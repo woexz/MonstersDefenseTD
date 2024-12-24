@@ -8,4 +8,5 @@ public class PlayerDataSO : ScriptableObject
     public int mana;
     public int currentCastleHealth;
     public int maxCastleHealth;
+    public IGameManager chosenGameManager;
 }

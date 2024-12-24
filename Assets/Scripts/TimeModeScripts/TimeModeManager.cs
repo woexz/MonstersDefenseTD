@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TimeModeManager : MonoBehaviour
+public class TimeModeManager : MonoBehaviour, IGameManager
 {
     // Статическая переменная для хранения единственного экземпляра
     private static TimeModeManager _instance;
@@ -56,11 +56,10 @@ public class TimeModeManager : MonoBehaviour
         scoreRecordData.Name = "PlayerName";
         scoreRecordData.Score = scoreDataSO.score;
 
-        Debug.LogError(scoreRecordData);
         ScoreDataJsonManager.Instance.AddNewRecords(scoreRecordData);
         ScoreDataJsonManager.Instance.SaveScoreRecords();
         onVictory?.Invoke();
-        SceneManager.LoadScene("VictoryScene");
+        SceneManager.LoadScene("VictoryTimemodeScene");
 
     }
 
