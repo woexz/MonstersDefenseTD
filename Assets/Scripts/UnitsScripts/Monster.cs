@@ -8,8 +8,7 @@ public class Monster : Enemy
     [SerializeField] private Transform _hpBar;
     protected MonsterHealthBar _monsterHealthBar;
     protected int currentHealth;
-
-    private IGameManager _gameManager;
+    [SerializeField] private PlayerDataSO _playerDataSO;
 
     public static Action<int> onMonsterDies;
 
@@ -29,9 +28,7 @@ public class Monster : Enemy
     {
         // Устанавливаем текущее здоровье равным максимальному при старте игры
         currentHealth = maxHealth;
-        _monsterHealthBar.SetHpVisual(maxHealth, currentHealth);
-
-        //_gameManager = 
+        _monsterHealthBar.SetHpVisual(maxHealth, currentHealth); 
     }
 
     // Метод для нанесения урона
@@ -64,9 +61,10 @@ public class Monster : Enemy
 
         _monsterHealthBar.DestroyHealthBar();
         var monsters = FindObjectsOfType<Monster>();
+
         if (monsters == null || monsters.Length <= 1)
         {
-            TimeModeManager.Instance.Victory();
+            _playerDataSO.chosenGameManager.Victory();
         }
         Destroy(gameObject);
     }

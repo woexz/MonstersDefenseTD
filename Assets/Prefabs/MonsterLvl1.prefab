@@ -113,7 +113,7 @@ MonoBehaviour:
   damage: 10
   manaForKill: 10
   _hpBar: {fileID: 7363122212253296107, guid: 41020e577aeb5fc4b8fb80bf700123fb, type: 3}
-  _health: {fileID: 0}
+  _playerDataSO: {fileID: 11400000, guid: ed26f62b9e15f134db3baab10e06aaaa, type: 2}
 --- !u!1 &5489147928708108007
 GameObject:
   m_ObjectHideFlags: 0

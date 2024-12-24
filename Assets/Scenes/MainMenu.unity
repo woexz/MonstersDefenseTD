@@ -2008,6 +2008,7 @@ MonoBehaviour:
   _mainMenuPanel: {fileID: 2013070772}
   _modeSelectionPanel: {fileID: 1134297274}
   _storylineButtonsPanel: {fileID: 235751652}
+  _playerData: {fileID: 11400000, guid: ed26f62b9e15f134db3baab10e06aaaa, type: 2}
 --- !u!1 &1165639399
 GameObject:
   m_ObjectHideFlags: 0
@@ -2335,6 +2336,7 @@ GameObject:
   - component: {fileID: 1298672404}
   - component: {fileID: 1298672412}
   - component: {fileID: 1298672413}
+  - component: {fileID: 1298672414}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2392,6 +2394,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27fc8f60f84a10b479bddf571c265192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1298672414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298672402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9575804f1c08ba648a0efc8f7efd25f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1326611061
