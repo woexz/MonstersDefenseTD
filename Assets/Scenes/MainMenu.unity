@@ -2008,7 +2008,7 @@ MonoBehaviour:
   _mainMenuPanel: {fileID: 2013070772}
   _modeSelectionPanel: {fileID: 1134297274}
   _storylineButtonsPanel: {fileID: 235751652}
-  _playerData: {fileID: 11400000, guid: ed26f62b9e15f134db3baab10e06aaaa, type: 2}
+  _playerDataSO: {fileID: 11400000, guid: ed26f62b9e15f134db3baab10e06aaaa, type: 2}
 --- !u!1 &1165639399
 GameObject:
   m_ObjectHideFlags: 0

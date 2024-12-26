@@ -1,17 +1,18 @@
 using Newtonsoft.Json;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class ScoreDataJsonManager : MonoBehaviour
+public class SaveProgressJsonManager : MonoBehaviour
 {
     private string _saveFilePath;
-    private List<ScoreRecordData> _scoreRecordDatas = new List<ScoreRecordData>();
+    private List<PlayerDataToSave> _scoreRecordDatas = new List<PlayerDataToSave>();
     // Статическая переменная для хранения единственного экземпляра
-    private static ScoreDataJsonManager _instance;
+    private static SaveProgressJsonManager _instance;
 
     // Публичное статическое свойство для доступа к экземпляру
-    public static ScoreDataJsonManager Instance
+    public static SaveProgressJsonManager Instance
     {
         get
         {
@@ -30,7 +31,7 @@ public class ScoreDataJsonManager : MonoBehaviour
         File.WriteAllText(_saveFilePath, json);
     }
 
-    public void AddNewRecords(ScoreRecordData data)
+    public void AddNewRecords(PlayerDataToSave data)
     {
         Debug.LogError(_scoreRecordDatas);
         _scoreRecordDatas.Add(data);
@@ -39,7 +40,7 @@ public class ScoreDataJsonManager : MonoBehaviour
     // Метод Awake вызывается при инициализации объекта
     private void Awake()
     {
-        _saveFilePath = Path.Combine(Application.persistentDataPath, @"saveData.json");
+        _saveFilePath = Path.Combine(Application.persistentDataPath, @"saveProgressData.json");
 
         // Проверяем, существует ли уже экземпляр
         if (_instance == null)
@@ -71,17 +72,19 @@ public class ScoreDataJsonManager : MonoBehaviour
         using (StreamReader sr = new StreamReader(_saveFilePath))
         {
             string json = sr.ReadToEnd();
-            _scoreRecordDatas = JsonConvert.DeserializeObject<List<ScoreRecordData>>(json);
-            if(_scoreRecordDatas == null)
+            _scoreRecordDatas = JsonConvert.DeserializeObject<List<PlayerDataToSave>>(json);
+            if (_scoreRecordDatas == null)
             {
-                _scoreRecordDatas = new List<ScoreRecordData>();
+                _scoreRecordDatas = new List<PlayerDataToSave>();
             }
         }
-    }  
+    }
 }
 
-public class ScoreRecordData
+public class PlayerDataToSave
 {
-    public string Name;
-    public float Score;
+    public float mana;
+    public int currentCastleHealth;
+    public int maxCastleHealth;
+    public string currentLevel;
 }

@@ -486,7 +486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 1000
   _castleHealthBar: {fileID: 1137758146}
-  playerDataSO: {fileID: 0}
+  _playerDataSO: {fileID: 11400000, guid: ed26f62b9e15f134db3baab10e06aaaa, type: 2}
 --- !u!1 &166906127
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,6 +835,7 @@ MonoBehaviour:
   startMana: 1000
   currentMana: 0
   ManaAmountText: {fileID: 1741143503}
+  _playerDataSO: {fileID: 11400000, guid: ed26f62b9e15f134db3baab10e06aaaa, type: 2}
 --- !u!4 &981502602
 Transform:
   m_ObjectHideFlags: 0
@@ -859,27 +860,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1134062081}
-  - component: {fileID: 1134062080}
+  - component: {fileID: 1134062082}
   m_Layer: 0
-  m_Name: ScoreManager
+  m_Name: SaveManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1134062080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1134062079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40d6f2d82a1d1634f92339ffe5b65e34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreDataSO: {fileID: 11400000, guid: ee79175dcc502184487ade3b742dc336, type: 2}
 --- !u!4 &1134062081
 Transform:
   m_ObjectHideFlags: 0
@@ -895,6 +883,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1134062082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134062079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09b07cdd027d704ab6cf4ec35f75b74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1137758144
 GameObject:
   m_ObjectHideFlags: 0

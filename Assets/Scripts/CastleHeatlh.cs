@@ -11,13 +11,14 @@ public class CastleHeatlh : MonoBehaviour
 
     private float _timer = 0f; // Переменная для отслеживания времени
 
-    [SerializeField] PlayerDataSO playerDataSO;
+    [SerializeField] PlayerDataSO _playerDataSO;
 
     public static Action<float> onHpChangeProcent;
     public static Action<int, int> onHpChange;
 
     private void Start()
     {
+        _playerDataSO.maxCastleHealth = _maxHealth;
         SetHp(_currentHealth);
         // Подписываемся на событие снаряда при создании снаряда
         Bullet.onHit += TakeDamage;
@@ -48,6 +49,7 @@ public class CastleHeatlh : MonoBehaviour
         float hpProcent = Utils.GetProcent((float)_currentHealth, (float)_maxHealth);
         onHpChangeProcent?.Invoke(hpProcent);
         onHpChange?.Invoke(_currentHealth, _maxHealth);
+        _playerDataSO.currentCastleHealth = _currentHealth;
     }
 
     

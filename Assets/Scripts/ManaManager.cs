@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class ManaManager : MonoBehaviour
 {
-    
-
     public float startMana = 1000f;
     public float currentMana;
 
@@ -17,6 +15,7 @@ public class ManaManager : MonoBehaviour
 
 
     [SerializeField] private Text ManaAmountText;
+    [SerializeField] private PlayerDataSO _playerDataSO;
 
     void Start()
     {
@@ -54,5 +53,6 @@ public class ManaManager : MonoBehaviour
     void RegenerateMana(int manaForDeath)
     {
         currentMana += manaForDeath;
+        _playerDataSO.mana = currentMana;
     }
 }
