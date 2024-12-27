@@ -10,6 +10,8 @@ public class StorylineButtons : MonoBehaviour
     [SerializeField] private GameObject _savesPanel;
     [SerializeField] private GameObject _background;
 
+    [SerializeField] private ListOfSavesSO _listOfSavesSO;
+
     public void StartNewGameOnClick()
     {
         SceneManager.LoadScene("Storyline1");
@@ -20,6 +22,10 @@ public class StorylineButtons : MonoBehaviour
         _storylineButtonsPanel.SetActive(false);
         _savesPanel.SetActive(true);
         _background.SetActive(false);
+        foreach (var save in _listOfSavesSO.listOfSaves)
+        {
+            Debug.Log(save);
+        }
     }
 
     public void BackToModeSelectionOnClick()

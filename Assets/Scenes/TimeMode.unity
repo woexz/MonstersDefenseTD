@@ -408,7 +408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 1000
   _castleHealthBar: {fileID: 1137758146}
-  playerDataSO: {fileID: 0}
+  _playerDataSO: {fileID: 11400000, guid: ed26f62b9e15f134db3baab10e06aaaa, type: 2}
 --- !u!114 &123539475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,9 +423,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _castleSpriteRenderer: {fileID: 78558980}
   _castleFullHealthSprite: {fileID: 21300000, guid: f95b21e5a1cc50a4b913e5d9abcd9cef, type: 3}
-  _castleDamagedSprite1: {fileID: 21300000, guid: c6b3c8732e702394db2a01d49add5e33, type: 3}
-  _castleDamagedSprite2: {fileID: 21300000, guid: dc5f429d5a0b41a4982e1edf9d00d430, type: 3}
-  _castleDamagedSprite3: {fileID: 21300000, guid: e6ea61cb03a211746aa7d85085a9dbff, type: 3}
+  _castleDamagedSprite1: {fileID: 21300000, guid: e290d98a4fe0af94799834cc955b4931, type: 3}
+  _castleDamagedSprite2: {fileID: 21300000, guid: 3fbbf9586649f7e49a3159e0823ba24e, type: 3}
+  _castleDamagedSprite3: {fileID: 21300000, guid: 5cc371f19f2e6f945a19117de5304d15, type: 3}
   _castleDestroyedSprite: {fileID: 21300000, guid: 70c2d8621cb1a8544950c2217a9f4dd6, type: 3}
   _fullHealthState: 100
   _firstDamagedState: 75

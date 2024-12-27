@@ -347,6 +347,7 @@ MonoBehaviour:
   _modeSelectionButtonsPanel: {fileID: 1134297274}
   _savesPanel: {fileID: 1326611061}
   _background: {fileID: 1781665916}
+  _listOfSavesSO: {fileID: 11400000, guid: fd1667c0fe215ed4aa17e7cd2e1e5d1d, type: 2}
 --- !u!1 &258176968
 GameObject:
   m_ObjectHideFlags: 0
