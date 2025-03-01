@@ -22,10 +22,10 @@ public class StorylineButtons : MonoBehaviour
         _storylineButtonsPanel.SetActive(false);
         _savesPanel.SetActive(true);
         _background.SetActive(false);
-        foreach (var save in _listOfSavesSO.listOfSaves)
-        {
-            Debug.Log(save);
-        }
+        //foreach (var save in _listOfSavesSO.listOfSaves)
+        //{
+        //    Debug.Log(save);
+        //}
     }
 
     public void BackToModeSelectionOnClick()

@@ -1448,7 +1448,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 668929866}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9981418
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1524,7 +1524,7 @@ RectTransform:
   m_Father: {fileID: 1410882604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.9981418}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2085,6 +2085,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1174010856}
   - component: {fileID: 1174010857}
+  - component: {fileID: 1174010858}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -2137,6 +2138,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1174010858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174010855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &1240363057
 GameObject:
   m_ObjectHideFlags: 0
@@ -2338,6 +2353,7 @@ GameObject:
   - component: {fileID: 1298672412}
   - component: {fileID: 1298672413}
   - component: {fileID: 1298672414}
+  - component: {fileID: 1298672415}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2409,6 +2425,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9575804f1c08ba648a0efc8f7efd25f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1298672415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298672402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99837835d5b03d441b41b2a5150c7951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: {fileID: 1174010856}
+  saveButtonPrefab: {fileID: 5077806879895663285, guid: 14483fdfc78075546b3cbf2ff82cd8f2, type: 3}
 --- !u!1 &1326611061
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class VictorySceneController : MonoBehaviour
 
     public void PlayAgainOnClick()
     {
+
+        Debug.LogError(_playerDataSO.chosenGameManager);
         SceneManager.LoadScene("TimeMode");
     }
 

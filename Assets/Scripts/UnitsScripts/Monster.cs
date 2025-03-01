@@ -64,6 +64,8 @@ public class Monster : Enemy
 
         if (monsters == null || monsters.Length <= 1)
         {
+            Debug.LogError(_playerDataSO);
+            Debug.LogError(_playerDataSO.chosenGameManager);
             _playerDataSO.chosenGameManager.Victory();
         }
         Destroy(gameObject);

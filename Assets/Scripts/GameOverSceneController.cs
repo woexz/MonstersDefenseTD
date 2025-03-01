@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverSceneController : MonoBehaviour
 {
+
     public void TryAgainOnClick()
     {
         SceneManager.LoadScene("TimeMode");
