@@ -13,13 +13,13 @@ public class ModeSelectionButtonsPanel : MonoBehaviour
 
     public void TimeModeButtonOnClick()
     {
-        _playerDataSO.chosenGameManager = FindObjectOfType<TimeModeManager>();
+        _playerDataSO.ChosenGameManager = FindObjectOfType<TimeModeManager>();
         SceneManager.LoadScene("TimeMode");
     }
 
     public void StoryModeButtonOnClick()
     {
-        _playerDataSO.chosenGameManager = FindObjectOfType<StorylineGameManager>();
+        _playerDataSO.ChosenGameManager = FindObjectOfType<StorylineGameManager>();
         _modeSelectionPanel.SetActive(false);
         _storylineButtonsPanel.SetActive(true);
     }
