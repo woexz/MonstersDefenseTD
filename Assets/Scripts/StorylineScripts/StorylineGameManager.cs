@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StorylineGameManager : MonoBehaviour, IGameManager
+public class StorylineGameManager : AbstactLevelManager
 {
     // Статическая переменная для хранения единственного экземпляра
     private static StorylineGameManager _instance;
@@ -39,12 +40,12 @@ public class StorylineGameManager : MonoBehaviour, IGameManager
         }
     }
 
-    public void GameOver()
+    public override void GameOver()
     {
         SceneManager.LoadScene("GameOverScene");
     }
 
-    public void Victory()
+    public override void Victory()
     {
         SceneManager.LoadScene("VictoryStorylineScene");
     }

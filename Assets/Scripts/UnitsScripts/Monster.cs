@@ -65,8 +65,10 @@ public class Monster : Enemy
         if (monsters == null || monsters.Length <= 1)
         {
             Debug.LogError(_playerDataSO);
-            Debug.LogError(_playerDataSO.chosenGameManager);
-            _playerDataSO.chosenGameManager.Victory();
+            Debug.LogError(_playerDataSO.ChosenGameManager);
+            //FindObjectOfType<TimeModeManager>().Victory();
+            _playerDataSO.ChosenGameManager.Victory();
+            
         }
         Destroy(gameObject);
     }

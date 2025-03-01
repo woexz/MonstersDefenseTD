@@ -4,33 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TimeModeManager : MonoBehaviour, IGameManager
+public class TimeModeManager : AbstactLevelManager
 {
-    // Статическая переменная для хранения единственного экземпляра
-    private static TimeModeManager _instance;
-
     [SerializeField] private ScoreData scoreDataSO;
     public static Action onGameOver;
     public static Action onVictory;
 
-
-    // Публичное статическое свойство для доступа к экземпляру
-    public static TimeModeManager Instance
-    {
-        get
-        {
-            // Если экземпляр не существует, создаем его
-            if (_instance == null)
-            {
-                // Создаем новый объект и добавляем к нему компонент GameManager
-                _instance = new GameObject("TimeModeManager").AddComponent<TimeModeManager>();
-            }
-            return _instance;
-        }
-    }
-
-
-    public void GameOver()
+    public override void GameOver()
     {
         //Логика сохранения данных о рекордах 
         /*
@@ -46,7 +26,7 @@ public class TimeModeManager : MonoBehaviour, IGameManager
         SceneManager.LoadScene("GameOverScene");
     }
 
-    public void Victory()
+    public override void Victory()
     {
         //Логика сохранения данных о рекордах 
         /*
@@ -63,22 +43,9 @@ public class TimeModeManager : MonoBehaviour, IGameManager
 
     }
 
-    // Метод Awake вызывается при инициализации объекта
-    private void Awake()
+    private void OnDestroy()
     {
-        // Проверяем, существует ли уже экземпляр
-        if (_instance == null)
-        {
-            // Если экземпляр не существует, назначаем текущий объект и не уничтожаем его при загрузке новой сцены
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            // Если экземпляр уже существует, уничтожаем текущий объект, чтобы сохранить единственность
-            Destroy(gameObject);
-        }
+        Debug.LogError(2);
     }
-
 
 }
