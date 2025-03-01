@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IGameManager
 {
     public void Victory();
+    public void GameOver();
 }

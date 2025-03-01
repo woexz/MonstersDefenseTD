@@ -11,6 +11,7 @@ public class StorylineButtons : MonoBehaviour
     [SerializeField] private GameObject _background;
 
     [SerializeField] private ListOfSavesSO _listOfSavesSO;
+    [SerializeField]
 
     public void StartNewGameOnClick()
     {
