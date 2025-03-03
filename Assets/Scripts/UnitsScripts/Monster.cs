@@ -7,7 +7,7 @@ public class Monster : Enemy
 {
     [SerializeField] private Transform _hpBar;
     protected MonsterHealthBar _monsterHealthBar;
-    protected int currentHealth;
+    public int currentHealth;
     [SerializeField] private PlayerDataSO _playerDataSO;
 
     public static Action<int> onMonsterDies;
@@ -32,7 +32,7 @@ public class Monster : Enemy
     }
 
     // Метод для нанесения урона
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         SetHp(currentHealth - damage);
         Debug.Log("Монстр получил урон! Текущее здоровье: " + currentHealth);
