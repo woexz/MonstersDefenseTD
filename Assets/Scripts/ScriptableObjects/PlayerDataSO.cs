@@ -9,7 +9,7 @@ public class PlayerDataSO : ScriptableObject
     public int currentCastleHealth;
     public int maxCastleHealth;
 
-    [SerializeField] private AbstactLevelManager _chosenGameManager;
+    private AbstactLevelManager _chosenGameManager;
     public AbstactLevelManager ChosenGameManager
     {
         get 
