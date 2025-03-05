@@ -24,13 +24,6 @@ public class Monster : Enemy
         bar.SetOwner(this);
     }
 
-    void Start()
-    {
-        // Устанавливаем текущее здоровье равным максимальному при старте игры
-        currentHealth = maxHealth;
-        _monsterHealthBar.SetHpVisual(maxHealth, currentHealth); 
-    }
-
     // Метод для нанесения урона
     public void TakeDamage(int damage)
     {
@@ -77,6 +70,6 @@ public class Monster : Enemy
     void OnMouseDown()
     {
         // Например, нанесём 10 единиц урона при каждом клике
-        TakeDamage(10);
+        TakeDamage(damage);
     }
 }

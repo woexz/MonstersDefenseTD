@@ -51,4 +51,9 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void LoadTestScene()
+    {
+        SceneManager.LoadScene("Test");
+    }
 }
