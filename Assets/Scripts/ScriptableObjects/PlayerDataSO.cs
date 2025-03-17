@@ -14,12 +14,12 @@ public class PlayerDataSO : ScriptableObject
     {
         get 
         {
-            Debug.LogError(0);
+            //Debug.LogError(0);
             return _chosenGameManager; 
         }
         set 
         {
-            Debug.LogError(1);
+            //Debug.LogError(1);
             _chosenGameManager = value;
         }
     }

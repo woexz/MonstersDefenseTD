@@ -32,7 +32,6 @@ public class ScoreDataJsonManager : MonoBehaviour
 
     public void AddNewRecords(ScoreRecordData data)
     {
-        Debug.LogError(_scoreRecordDatas);
         _scoreRecordDatas.Add(data);
     }
 
@@ -60,7 +59,7 @@ public class ScoreDataJsonManager : MonoBehaviour
     }
     private void LoadScoreRecords()
     {
-        Debug.LogError(_saveFilePath);
+        Debug.Log(_saveFilePath);
         if (!File.Exists(_saveFilePath))
         {
             File.Create(_saveFilePath);
