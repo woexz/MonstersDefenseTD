@@ -7,16 +7,6 @@ public class CastleHealthBar : MonoBehaviour
 {
     [SerializeField] private Image _healthBarFill;
     [SerializeField] private Text _hpAmount;
-    private void OnHpChangeProcent(float hpProcent)
-    {
-        //Реакция на событие смены здоровья в замке
-        ChangeHpVisual(hpProcent);
-    }
-
-    private void OnHpChange(int currentHealth)
-    {
-        ChangeHpAmount(currentHealth);
-    }
 
     private void Start()
     {
@@ -29,6 +19,16 @@ public class CastleHealthBar : MonoBehaviour
         CastleHeatlh.onHpChangeProcent -= OnHpChangeProcent;
         CastleHeatlh.onHpChange -= OnHpChange;
     }
+    private void OnHpChangeProcent(float hpProcent)
+    {
+        //Реакция на событие смены здоровья в замке
+        ChangeHpVisual(hpProcent);
+    }
+
+    private void OnHpChange(int currentHealth, int maxHealth)
+    {
+        ChangeHpAmount(currentHealth);
+    }
 
     private void ChangeHpVisual(float hpProcent)
     {
@@ -38,13 +38,6 @@ public class CastleHealthBar : MonoBehaviour
 
     private void ChangeHpAmount(int currentHealth)
     {
-        _hpAmount.text = currentHealth.ToString();
-    }
-
-    public void SetHpVisual(int maxHealth, int currentHealth)
-    {
-        //Установка хп замка
-        _healthBarFill.fillAmount = Utils.GetProcent(currentHealth, maxHealth);
         _hpAmount.text = currentHealth.ToString();
     }
 }

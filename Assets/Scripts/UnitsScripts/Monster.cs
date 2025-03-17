@@ -1,0 +1,75 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Monster : Enemy
+{
+    [SerializeField] private Transform _hpBar;
+    protected MonsterHealthBar _monsterHealthBar;
+    public int currentHealth;
+    [SerializeField] private PlayerDataSO _playerDataSO;
+
+    public static Action<int> onMonsterDies;
+
+    public void SetHealthBar(MonsterHealthBar bar)
+    {
+        _monsterHealthBar = bar;
+    }
+
+    public void CreateHpVisual(Transform container)
+    {
+        var bar = Instantiate(_hpBar, container).GetComponent<MonsterHealthBar>();
+        SetHealthBar(bar);
+        bar.SetOwner(this);
+    }
+
+    // Метод для нанесения урона
+    public void TakeDamage(int damage)
+    {
+        SetHp(currentHealth - damage);
+        Debug.Log("Монстр получил урон! Текущее здоровье: " + currentHealth);
+
+        // Если здоровье опускается до 0 или ниже, уничтожаем монстра
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void SetHp(int hp)
+    {
+        currentHealth = hp; //Выставляем текущее хп с нанесенным уроном
+        float hpProcent = Utils.GetProcent((float)currentHealth, (float)maxHealth);
+        //onMonsterHpChangeProcent?.Invoke(hpProcent);
+        _monsterHealthBar.ChangeHpFillAmount(hpProcent);
+        _monsterHealthBar.ChangeHpAmount(currentHealth);
+    }
+
+    // Метод для уничтожения монстра
+    void Die()
+    {
+        onMonsterDies?.Invoke(manaForKill);
+        Debug.Log("Монстр уничтожен!");
+
+        _monsterHealthBar.DestroyHealthBar();
+        var monsters = FindObjectsOfType<Monster>();
+
+        if (monsters == null || monsters.Length <= 1)
+        {
+            Debug.LogError(_playerDataSO);
+            Debug.LogError(_playerDataSO.ChosenGameManager);
+            //FindObjectOfType<TimeModeManager>().Victory();
+            _playerDataSO.ChosenGameManager.Victory();
+            
+        }
+        Destroy(gameObject);
+    }
+
+    // Метод, который вызывается при клике по монстру
+    void OnMouseDown()
+    {
+        // Например, нанесём 10 единиц урона при каждом клике
+        TakeDamage(damage);
+    }
+}

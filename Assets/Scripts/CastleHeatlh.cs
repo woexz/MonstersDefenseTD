@@ -5,22 +5,23 @@ using UnityEngine;
 
 public class CastleHeatlh : MonoBehaviour
 {
-    [SerializeField] private int _maxHealth = 100;   // Максимальное количество здоровья замка
-    private int currentHealth;    // Текущее здоровье замка
+    [SerializeField] private int _maxHealth = 1000;   // Максимальное количество здоровья замка
+    private int _currentHealth = 1000;    // Текущее здоровье замка
     [SerializeField] private CastleHealthBar _castleHealthBar;
 
+    private float _timer = 0f; // Переменная для отслеживания времени
+
+    [SerializeField] PlayerDataSO _playerDataSO;
+
     public static Action<float> onHpChangeProcent;
-    public static Action<int> onHpChange;
-    private bool _isDead = false;
+    public static Action<int, int> onHpChange;
 
     private void Start()
     {
-        // Устанавливаем здоровье на максимальное в начале игры
-        currentHealth = _maxHealth;
-        _castleHealthBar.SetHpVisual(_maxHealth, currentHealth);
+        _playerDataSO.maxCastleHealth = _maxHealth;
+        SetHp(_currentHealth);
         // Подписываемся на событие снаряда при создании снаряда
         Bullet.onHit += TakeDamage;
-
     }
 
     private void OnDestroy()
@@ -32,36 +33,34 @@ public class CastleHeatlh : MonoBehaviour
     public void TakeDamage(int damage)
     {
         
-        SetHp(currentHealth - damage);
-        Debug.Log("Замок получил урон! Текущее здоровье: " + currentHealth);
+        SetHp(_currentHealth - damage);
+        Debug.Log("Замок получил урон! Текущее здоровье: " + _currentHealth);
 
         // Если здоровье упало до 0 или ниже, уничтожаем замок
-        if (currentHealth <= 0)
+        if (_currentHealth <= 0)
         {
-            Time.timeScale = 0;
             Die();
         }
     }
 
     private void SetHp(int hp)
     {
-        currentHealth = hp; //Выставляем текущее хп с нанесенным уроном
-        float hpProcent = Utils.GetProcent((float)currentHealth, (float)_maxHealth);
+        _currentHealth = hp; //Выставляем текущее хп с нанесенным уроном
+        float hpProcent = Utils.GetProcent((float)_currentHealth, (float)_maxHealth);
         onHpChangeProcent?.Invoke(hpProcent);
-        onHpChange?.Invoke(currentHealth);
+        onHpChange?.Invoke(_currentHealth, _maxHealth);
+        _playerDataSO.currentCastleHealth = _currentHealth;
     }
 
     
 
     // Метод для уничтожения замка
-    void Die()
+    private void Die()
     {
-        _isDead = true;
         Debug.Log("Замок разрушен!");
         // Здесь вы можете добавить анимацию разрушения, эффекты и т.д.
-        GameManager.Instance.GameOver();
+        FindObjectOfType<TimeModeManager>().GameOver();
+        //TimeModeManager.Instance.GameOver();
         Destroy(gameObject);
     }
-
-    
 }

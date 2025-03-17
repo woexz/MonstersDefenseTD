@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MainMenuButtons" Collapsed="true">
+    <Position X="12.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAIACAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MainMenuScripts\MainMenuButtons.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModeSelectionButtonsPanel" Collapsed="true">
+    <Position X="15.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAgAAAAAAAAAIAACAAAABAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MainMenuScripts\ModeSelectionButtons.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SavesButtonsPanel" Collapsed="true">
+    <Position X="12.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAACAAAAAAIAAAAAAQAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MainMenuScripts\SavesButtonsPanel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StorylineButtons" Collapsed="true">
+    <Position X="14" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAECEAAAAAIAAAAAAQAAAAE=</HashCode>
+      <FileName>Assets\Scripts\MainMenuScripts\StorylineButtons.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Boss" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UnitsScripts\Boss.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enemy" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAgAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UnitsScripts\Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FireMonster" Collapsed="true">
+    <Position X="17.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UnitsScripts\FireMonster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FrostMonster" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UnitsScripts\FrostMonster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Monster" Collapsed="true">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAIAAAECABAAAgIEAAAAAAAAAEAAAAIAAAgAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UnitsScripts\Monster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PreplacedMonster" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Assets\Scripts\UnitsScripts\PreplacedMonster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleMonster" Collapsed="true">
+    <Position X="6.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UnitsScripts\SimpleMonster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bullet" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAADAACAAAAAAAAAAAAAAAAAAAAAABCAgQAAAAAQ=</HashCode>
+      <FileName>Assets\Scripts\Bullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CastleHealthBar" Collapsed="true">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAERAEAAACAAAAAAEAAAAAAAABACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\CastleHealthBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CastleHeatlh" Collapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACAgAAAgIEAAEBAAAAAAAACSAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\CastleHeatlh.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CastleVisual" Collapsed="true">
+    <Position X="15.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgABIAAABCAAAAAAAAAAAAAQABAAYAAggAEABAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\CastleVisual.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameOverSceneController" Collapsed="true">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Assets\Scripts\GameOverSceneController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManaManager" Collapsed="true">
+    <Position X="14" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUBAAAAACABAAAAAAAABAAAABQAoAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ManaManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterHealthBar" Collapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AwUQgAAowAAAAAAAAAAACAAAQAQAACAAAgAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MonsterHealthBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonstersManager" Collapsed="true">
+    <Position X="10.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgACACAAAAgAAAAAAACAAAIIgACAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MonstersManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterData" Collapsed="true">
+    <Position X="17.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MonstersManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneController" Collapsed="true">
+    <Position X="14" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAgAAAAAAAAAAAQAAAAAAgAQAAAAAAgAEA=</HashCode>
+      <FileName>Assets\Scripts\SceneController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScoreDataJsonManager" Collapsed="true">
+    <Position X="15.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAUAAgAACAAAAAAAGAAAAAAAAAAAAAAQAEAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\ScoreDataJsonManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScoreRecordData" Collapsed="true">
+    <Position X="8.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ScoreDataJsonManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScoreManager" Collapsed="true">
+    <Position X="17.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUBAAAAACAhACAAAAAAAAAIAAAAYAAEAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\ScoreManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shooting" Collapsed="true">
+    <Position X="10.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAYAAABAAAIABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Shooting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpellsOnClick" Collapsed="true">
+    <Position X="12.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\SpellsOnClick.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StorylineReferencesManager" Collapsed="true">
+    <Position X="15.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAEAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\StorylineReferencesManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeModeManager" Collapsed="true">
+    <Position X="17.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEgAAAAAAAAAAEAAAAAABAAAAAQAgAQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\TimeModeManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeScoreText" Collapsed="true">
+    <Position X="8.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABBAAAACAAAAAAAAAgAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\TimeScoreText.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Utils" Collapsed="true">
+    <Position X="10.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Assets\Scripts\Utils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VictorySceneController" Collapsed="true">
+    <Position X="12.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Assets\Scripts\VictorySceneController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
