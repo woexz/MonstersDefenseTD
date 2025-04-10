@@ -43,6 +43,11 @@ public class CastleHeatlh : MonoBehaviour
         }
     }
 
+    public void StartBurn()
+    {
+
+    }
+
     private void SetHp(int hp)
     {
         _currentHealth = hp; //Выставляем текущее хп с нанесенным уроном
@@ -62,5 +67,15 @@ public class CastleHeatlh : MonoBehaviour
         FindObjectOfType<TimeModeManager>().GameOver();
         //TimeModeManager.Instance.GameOver();
         Destroy(gameObject);
+    }
+
+
+    /// <param name="timeburn">время горения в секундах</param>
+    private IEnumerator BurnCoroutine(int timeburn, float damageburn)
+    {
+        for (int i = 0; i < timeburn; i++)
+        {
+            yield return null;
+        }
     }
 }
