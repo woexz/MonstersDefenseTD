@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,9 +13,13 @@ public class VictorySceneController : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void GoToNextLevelOnClick()
+    {
+        SceneManager.LoadScene("Storyline" + Convert.ToString(_playerDataSO.currentLevel));
+    }
+
     public void PlayAgainOnClick()
     {
-
         Debug.LogError(_playerDataSO.ChosenGameManager);
         SceneManager.LoadScene("TimeMode");
     }
@@ -25,7 +30,7 @@ public class VictorySceneController : MonoBehaviour
         playerDataToSave.mana = _playerDataSO.mana;
         playerDataToSave.currentCastleHealth = _playerDataSO.currentCastleHealth;
         playerDataToSave.maxCastleHealth = _playerDataSO.maxCastleHealth;
-        playerDataToSave.currentLevel = "выбранный уровень";
+        playerDataToSave.currentLevel = 1; //заглушка, изменить
 
 
         SaveProgressJsonManager.Instance.AddNewRecords(playerDataToSave);

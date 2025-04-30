@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AbstactLevelManager : MonoBehaviour
+public abstract class AbstractLevelManager : MonoBehaviour
 {
     public abstract void Victory();
 

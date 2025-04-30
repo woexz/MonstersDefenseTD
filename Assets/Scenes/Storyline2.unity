@@ -486,7 +486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 1000
   _castleHealthBar: {fileID: 1137758146}
-  playerDataSO: {fileID: 0}
+  _playerDataSO: {fileID: 11400000, guid: ed26f62b9e15f134db3baab10e06aaaa, type: 2}
 --- !u!1001 &156320068
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -892,6 +892,7 @@ MonoBehaviour:
   startMana: 1000
   currentMana: 0
   ManaAmountText: {fileID: 1741143503}
+  _playerDataSO: {fileID: 11400000, guid: ed26f62b9e15f134db3baab10e06aaaa, type: 2}
 --- !u!4 &981502602
 Transform:
   m_ObjectHideFlags: 0

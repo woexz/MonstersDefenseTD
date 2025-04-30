@@ -9,8 +9,8 @@ public class PlayerDataSO : ScriptableObject
     public int currentCastleHealth;
     public int maxCastleHealth;
 
-    private AbstactLevelManager _chosenGameManager;
-    public AbstactLevelManager ChosenGameManager
+    private AbstractLevelManager _chosenGameManager;
+    public AbstractLevelManager ChosenGameManager
     {
         get 
         {
@@ -23,5 +23,5 @@ public class PlayerDataSO : ScriptableObject
             _chosenGameManager = value;
         }
     }
-    public string currentLevel;
+    public int currentLevel;
 }

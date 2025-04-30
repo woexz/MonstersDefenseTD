@@ -11,10 +11,11 @@ public class StorylineButtons : MonoBehaviour
     [SerializeField] private GameObject _background;
 
     [SerializeField] private ListOfSavesSO _listOfSavesSO;
-    [SerializeField]
+    [SerializeField] PlayerDataSO _playerDataSO;
 
     public void StartNewGameOnClick()
     {
+        _playerDataSO.currentLevel = 1;
         SceneManager.LoadScene("Storyline1");
     }
 

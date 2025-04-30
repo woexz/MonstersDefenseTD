@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StorylineGameManager : AbstactLevelManager
+public class StorylineGameManager : AbstractLevelManager
 {
+    [SerializeField] PlayerDataSO _playerDataSO;
+
     // Статическая переменная для хранения единственного экземпляра
     private static StorylineGameManager _instance;
 
@@ -47,6 +49,7 @@ public class StorylineGameManager : AbstactLevelManager
 
     public override void Victory()
     {
+        _playerDataSO.currentLevel += 1;
         SceneManager.LoadScene("VictoryStorylineScene");
     }
 }

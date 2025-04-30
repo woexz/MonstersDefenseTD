@@ -118,7 +118,7 @@ MonoBehaviour:
   _playerDataSO: {fileID: 11400000, guid: ed26f62b9e15f134db3baab10e06aaaa, type: 2}
   _bubble: {fileID: 8909624205969729832}
   _minTimeBeetweenState: 3
-  _maxTimeBeetweenState: 8
+  _maxTimeBeetweenState: 5
 --- !u!1 &5489147928708108007
 GameObject:
   m_ObjectHideFlags: 0

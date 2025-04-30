@@ -31,6 +31,12 @@ public class SaveLoader : MonoBehaviour
         // Загружаем JSON файл
         string json = File.ReadAllText(saveFilePath);
 
+        if (string.IsNullOrEmpty(json))
+        {
+            Debug.LogWarning("Файл пустой");
+            return;
+        }
+
         // Десериализуем список сохранений
         List<PlayerDataToSave> saves = JsonConvert.DeserializeObject<List<PlayerDataToSave>>(json);
 

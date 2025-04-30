@@ -38,6 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -347,6 +348,7 @@ MonoBehaviour:
   _savesPanel: {fileID: 1326611061}
   _background: {fileID: 1781665916}
   _listOfSavesSO: {fileID: 11400000, guid: fd1667c0fe215ed4aa17e7cd2e1e5d1d, type: 2}
+  _playerDataSO: {fileID: 11400000, guid: ed26f62b9e15f134db3baab10e06aaaa, type: 2}
 --- !u!1 &258176968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2692,6 +2694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9575804f1c08ba648a0efc8f7efd25f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerDataSO: {fileID: 11400000, guid: ed26f62b9e15f134db3baab10e06aaaa, type: 2}
 --- !u!114 &1298672415
 MonoBehaviour:
   m_ObjectHideFlags: 0

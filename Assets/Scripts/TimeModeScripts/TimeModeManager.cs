@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TimeModeManager : AbstactLevelManager
+public class TimeModeManager : AbstractLevelManager
 {
     [SerializeField] private ScoreData scoreDataSO;
     public static Action onGameOver;
@@ -42,10 +42,4 @@ public class TimeModeManager : AbstactLevelManager
         SceneManager.LoadScene("VictoryTimemodeScene");
 
     }
-
-    private void OnDestroy()
-    {
-        Debug.LogError(2);
-    }
-
 }

@@ -2,6 +2,7 @@ using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public class SaveProgressJsonManager : MonoBehaviour
@@ -35,7 +36,6 @@ public class SaveProgressJsonManager : MonoBehaviour
 
     public void AddNewRecords(PlayerDataToSave data)
     {
-        Debug.LogError(_playerDataList);
         _playerDataList.Add(data);
     }
 
@@ -63,23 +63,27 @@ public class SaveProgressJsonManager : MonoBehaviour
     }
     private void LoadScoreRecords()
     {
-        Debug.LogError(_saveFilePath);
+        Debug.LogWarning(_saveFilePath);
         if (!File.Exists(_saveFilePath))
         {
             File.Create(_saveFilePath);
             return;
         }
 
-        //заполнение so с типами квестов
+        
         using (StreamReader sr = new StreamReader(_saveFilePath))
         {
             string json = sr.ReadToEnd();
             _playerDataList = JsonConvert.DeserializeObject<List<PlayerDataToSave>>(json);
             _listOfSavesSO.listOfSaves = JsonConvert.DeserializeObject<List<PlayerDataToSave>>(json);
-            foreach (var item in _listOfSavesSO.listOfSaves)
+
+            if (string.IsNullOrEmpty(json))
             {
-                Debug.Log(item);
+                Debug.LogWarning("Файл пустой");
+                return;
             }
+
+          
 
             if (_playerDataList == null)
             {
@@ -94,5 +98,5 @@ public class PlayerDataToSave
     public float mana;
     public int currentCastleHealth;
     public int maxCastleHealth;
-    public string currentLevel;
+    public int currentLevel;
 }
