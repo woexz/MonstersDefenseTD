@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class TimeScoreText : MonoBehaviour
 {
-    private Text _scoreText;
+    [SerializeField] private Text _scoreText;
+
     private void Start()
     {
-        _scoreText = GetComponent<Text>();
         ScoreManager.onScoreChange += OnScoreChange;
     }
 
@@ -21,6 +21,6 @@ public class TimeScoreText : MonoBehaviour
 
     private void ChangeScoreVisual(float score)
     {
-        _scoreText.text = $"Очки: {score}";
+        _scoreText.text = $"Время: {score}";
     }
 }

@@ -42,4 +42,9 @@ public class TimeModeManager : AbstractLevelManager
         SceneManager.LoadScene("VictoryTimemodeScene");
 
     }
+
+    private void MakeRecords()
+    {
+
+    }
 }
