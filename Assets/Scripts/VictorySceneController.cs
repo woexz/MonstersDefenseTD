@@ -11,6 +11,7 @@ public class VictorySceneController : MonoBehaviour
     public void BackToMainMenuOnClick()
     {
         SceneManager.LoadScene("MainMenu");
+        _playerDataSO.ChosenGameManager = null;
     }
 
     public void GoToNextLevelOnClick()
