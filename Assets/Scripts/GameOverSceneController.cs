@@ -10,7 +10,7 @@ public class GameOverSceneController : MonoBehaviour
     public void TryAgainOnClick()
     {
         Debug.LogError(playerDataSO.ChosenGameManager);
-        SceneManager.LoadScene("TimeMode");
+        SceneManager.LoadScene("Storyline" + playerDataSO.currentLevel);
         Debug.LogError(playerDataSO.ChosenGameManager);
     }
 

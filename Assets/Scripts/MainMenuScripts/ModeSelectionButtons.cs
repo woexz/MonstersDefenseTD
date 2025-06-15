@@ -9,6 +9,9 @@ public class ModeSelectionButtonsPanel : MonoBehaviour
     [SerializeField] private GameObject _modeSelectionPanel;
     [SerializeField] private GameObject _storylineButtonsPanel;
 
+    [SerializeField] private GameObject _gameName;
+    [SerializeField] private GameObject _modeImage;
+
     [SerializeField] private PlayerDataSO _playerDataSO;
 
     public void TimeModeButtonOnClick()
@@ -26,6 +29,8 @@ public class ModeSelectionButtonsPanel : MonoBehaviour
 
     public void BackToMainMenuButtonOnClick()
     {
+        _gameName.SetActive(true);
+        _modeImage.SetActive(false);
         _modeSelectionPanel.SetActive(false);
         _mainMenuPanel.SetActive(true);
     }

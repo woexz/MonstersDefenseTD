@@ -58,8 +58,9 @@ public class CastleHeatlh : MonoBehaviour
     private void Die()
     {
         Debug.Log("Замок разрушен!");
+        _playerDataSO.ChosenGameManager.GameOver();
         // Здесь вы можете добавить анимацию разрушения, эффекты и т.д.
-        FindObjectOfType<TimeModeManager>().GameOver();
+        //FindObjectOfType<TimeModeManager>().GameOver();
         //TimeModeManager.Instance.GameOver();
         Destroy(gameObject);
     }

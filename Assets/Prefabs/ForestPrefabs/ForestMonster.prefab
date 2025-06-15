@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ad85b04ac8f444caf7ffc163eaf7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7833172955033895261, guid: 112c2a10cddec1f4b8b2a399d0772cce, type: 3}
+  bulletPrefab: {fileID: 7833172955033895261, guid: 8311f589b3503f748ba6cd663108414f, type: 3}
   FirePoint: {fileID: 1851101957815077568}
   fireRate: 1
   _damage: 10
@@ -225,7 +225,7 @@ Transform:
   m_GameObject: {fileID: 6822637530139051483}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: -0.929, y: -0.738, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

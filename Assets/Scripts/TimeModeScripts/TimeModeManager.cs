@@ -23,7 +23,7 @@ public class TimeModeManager : AbstractLevelManager
         ScoreDataJsonManager.Instance.AddNewRecords(scoreRecordData);
         ScoreDataJsonManager.Instance.SaveScoreRecords();
         onGameOver?.Invoke();
-        SceneManager.LoadScene("GameOverScene");
+        SceneManager.LoadScene("GameOverTimeModeScene");
     }
 
     public override void Victory()

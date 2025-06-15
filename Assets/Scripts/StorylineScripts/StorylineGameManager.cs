@@ -44,7 +44,7 @@ public class StorylineGameManager : AbstractLevelManager
 
     public override void GameOver()
     {
-        SceneManager.LoadScene("GameOverScene");
+        SceneManager.LoadScene("GameOverStorylineScene");
     }
 
     public override void Victory()
